@@ -1,7 +1,16 @@
 import "./index.css";
+import { Hero } from "./components/Hero";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 export function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Navbar />
+      <Hero />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
