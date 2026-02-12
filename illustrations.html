@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-theme="validcoffee">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carmen Ma</title>
+
+    <link rel="icon" href="./assets/smile.svg" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <link rel="stylesheet" href="./index.css" />
+
+    <style type="text/tailwindcss"></style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        feather.replace();
+      });
+    </script>
+  </head>
+
+  <body>
+    <!--NAVBAR-->
+    <nav class="navbar bg-base-300 shadow-sm">
+      <div class="flex-1">
+        <a href="index.html" class="text-xl font-bold text-primary ml-5">
+          Carmen Ma
+        </a>
+      </div>
+      <div class="flex-none">
+        <a
+          href="./assets/Carmen_Ma_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button class="btn btn-ghost text-primary">
+            <i data-feather="file-text"></i>
+          </button>
+        </a>
+
+        <a
+          href="https://github.com/pomimon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button class="btn btn-ghost text-primary">
+            <i data-feather="github"></i>
+          </button>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/carmen-ma12343/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button class="btn btn-ghost text-primary">
+            <i data-feather="linkedin"></i>
+          </button>
+        </a>
+
+        <a
+          href="mailto:carmen.ma73@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button class="btn btn-ghost text-primary">
+            <i data-feather="mail"></i>
+          </button>
+        </a>
+      </div>
+    </nav>
+
+    <!--CARDS-->
+    <div
+      class="text-primary flex flex-row justify-center text-4xl font-bold pt-10"
+    >
+      <h2>Illustrations</h2>
+    </div>
+
+    <div class="flex flex-column justify-center text-lg mb-9 mt-3">
+      <p class="text-center w-6xl">
+        A variety of vector work I've created using Adobe Illustrator, Affinity
+        Designer, or Figma. Many of these monster illustrations begins with a
+        few random pen strokes. I play around until I start seeing something
+        emerge from the chaos, and that's what it becomes. It's a spontaneous,
+        discovery-driven process where the final design reveals itself
+        organically. This collection demonstrates my approach to illustration
+        and design across different styles and subjects, blending intuition with
+        technical execution.
+      </p>
+    </div>
+    <div id="cards"></div>
+    <!-- Drawer for Pokedex -->
+    <div class="drawer drawer-end z-50">
+      <input id="image-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-side">
+        <label for="image-drawer" class="drawer-overlay"></label>
+        <div
+          class="bg-base-200 min-h-full w-full md:w-2/3 p-8 flex items-center justify-center"
+        >
+          <label
+            for="image-drawer"
+            class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4"
+            >✕</label
+          >
+          <img
+            id="drawer-image"
+            src=""
+            alt=""
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer
+      class="footer sm:footer-horizontal bg-base-300 p-20 mt-20 justify-center"
+    >
+      <a href="mailto:carmen.ma73@gmail.com">
+        <button
+          class="btn btn-neutral btn-lg gap-2 flex flex-row text-white"
+          id="contact"
+        >
+          <div class="h-8 w-8 pr-2 flex items-center">
+            <i data-feather="send"></i>
+          </div>
+          Contact Me
+        </button>
+      </a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      function openDrawer(imageSrc, altText) {
+        const drawerImage = document.getElementById("drawer-image");
+        drawerImage.src = imageSrc;
+        drawerImage.alt = altText;
+        document.getElementById("image-drawer").checked = true;
+      }
+
+      function makeDiv(className) {
+        const div = document.createElement("div");
+        div.className = className || "";
+        return div;
+      }
+
+      function createCard(name, image) {
+        const img = document.createElement("img");
+        const div = document.createElement("div");
+
+        img.alt = name;
+        img.className = "w-full h-full object-contain";
+        img.src = `./assets/illustrations/${image}`;
+
+        div.className =
+          "w-full md:w-120  rounded-tl-2xl rounded-br-2xl overflow-hidden cursor-pointer hover:opacity-80 transition-opacity";
+        div.onclick = () => openDrawer(`./assets/illustrations/${image}`, name);
+
+        div.appendChild(img);
+
+        return div;
+      }
+
+      function createCardRow() {
+        return makeDiv(
+          "flex flex-col md:flex-row w-full py-10 justify-center gap-8 px-30",
+        );
+      }
+
+      function createCardDivider() {
+        return makeDiv("divider md:divider-horizontal h-60 self-center");
+      }
+
+      const cards = document.getElementById("cards");
+
+      const row1 = createCardRow();
+      const row2 = createCardRow();
+      const row3 = createCardRow();
+      const row4 = createCardRow();
+      const row5 = createCardRow();
+
+      cards.appendChild(row1);
+      cards.appendChild(row2);
+      cards.appendChild(row3);
+      cards.appendChild(row4);
+      cards.appendChild(row5);
+
+      row1.appendChild(createCard("Bluebird", "bluebird.jpg"));
+      row1.appendChild(createCardDivider());
+      row1.appendChild(createCard("Pinkbird", "pinkbird.jpg"));
+
+      row2.appendChild(createCard("Big Bird", "bigbird.jpg"));
+      row2.appendChild(createCardDivider());
+      row2.appendChild(createCard("Birb", "birb.jpg"));
+
+      row3.appendChild(createCard("Froggo", "froggo.jpg"));
+      row3.appendChild(createCardDivider());
+      row3.appendChild(createCard("Chinatocat", "chinatocat.jpg"));
+
+      row4.appendChild(createCard("Creep", "creep.jpg"));
+      row4.appendChild(createCardDivider());
+      row4.appendChild(createCard("Deardeer", "deardeer.jpg"));
+
+      row5.appendChild(createCard("Mushu", "mushu.jpg"));
+      row5.appendChild(createCardDivider());
+      row5.appendChild(createCard("Thing", "thing.jpg"));
+    </script>
+  </body>
+</html>
