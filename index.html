@@ -23,9 +23,11 @@
 
   <body>
     <!--NAVBAR-->
-    <nav class="navbar bg-base-300 shadow-sm" id="navbar">
+    <nav class="navbar bg-base-300 shadow-sm">
       <div class="flex-1">
-        <a href="#navbar" class="text-xl text-primary ml-5"> Carmen Ma </a>
+        <a href="index.html" class="text-xl font-bold text-primary ml-5">
+          Carmen Ma
+        </a>
       </div>
       <div class="flex-none">
         <a
@@ -110,18 +112,25 @@
     <div>
       <div class="w-full px-20 pt-10 pb-10 bg-base-300" id="projects">
         <div
-          class="text-primary flex flex-row justify-center text-4xl font-bold"
+          class="text-primary flex flex-row justify-center text-4xl font-bold mb-15"
         >
           <h2>Projects</h2>
         </div>
+
+        <!--CARDS start-->
+        <!--FIRST ROW-->
         <div
-          class="flex flex-col md:flex-row w-full py-30 justify-center gap-8 px-10"
+          class="flex flex-col md:flex-row w-full py-10 justify-center gap-8 px-10"
         >
           <div
-            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl"
+            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
           >
-            <figure class="rounded-tl-2xl overflow-hidden">
-              <img src="./assets/pokedex.png" alt="Pokedex" />
+            <figure class="rounded-tl-2xl overflow-hidden h-64">
+              <img
+                src="./assets/pokedex.png"
+                alt="Pokedex"
+                class="w-full h-full object-cover"
+              />
             </figure>
             <div class="card-body text-white">
               <h2 class="card-title">Pokedex</h2>
@@ -154,10 +163,14 @@
           <div class="divider md:divider-horizontal h-60 self-center"></div>
 
           <div
-            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl"
+            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
           >
-            <figure class="rounded-tl-2xl overflow-hidden">
-              <img src="./assets/streams.png" alt="Wildlife streams" />
+            <figure class="rounded-tl-2xl overflow-hidden h-64">
+              <img
+                src="./assets/streams.png"
+                alt="Wildlife streams"
+                class="w-full h-full object-cover"
+              />
             </figure>
             <div class="card-body text-white">
               <h2 class="card-title">Wildlife streams</h2>
@@ -180,7 +193,74 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button class="btn btn-info shadow-none mt-5">Github</button>
+                  <button
+                    class="btn btn-info hover:btn-info/50 shadow-none mt-5"
+                  >
+                    Github
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--SECOND ROW-->
+        <div
+          class="flex flex-col md:flex-row w-full py-10 justify-center gap-8 px-10"
+        >
+          <div
+            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
+          >
+            <figure class="rounded-tl-2xl overflow-hidden h-64">
+              <img
+                src="./assets/vi.jpg"
+                alt="illustrations"
+                class="w-full h-full object-cover"
+              />
+            </figure>
+            <div class="card-body text-white">
+              <h2 class="card-title">Illustrations</h2>
+              <p>
+                A mix of vector illustrations created in Adobe Illustrator,
+                Affinity Designer, or Figma.
+              </p>
+              <div class="card-actions justify-end">
+                <a
+                  href="illustrations.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button class="btn btn-info shadow-none mt-5">
+                    view illustrations
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider md:divider-horizontal h-60 self-center"></div>
+
+          <div
+            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
+          >
+            <figure class="rounded-tl-2xl overflow-hidden h-64">
+              <img
+                src="./assets/dw.jpg"
+                alt="design work"
+                class="w-full h-full object-cover"
+              />
+            </figure>
+            <div class="card-body text-white">
+              <h2 class="card-title">Design</h2>
+              <p>
+                A collection of design projects created using Adobe Creative
+                Cloud, Affinity Designer, or Figma across various styles.
+              </p>
+              <div class="card-actions justify-end">
+                <a href="allDesigns.html" rel="noopener noreferrer">
+                  <button class="btn btn-info hover:btn-info shadow-none mt-5">
+                    view designs
+                  </button>
                 </a>
               </div>
             </div>
@@ -195,9 +275,9 @@
           <h2>Experience</h2>
         </div>
         <div class="flex flex-column justify-center text-lg mb-9">
-          <p class="text-center w-5xl">
-            I'm focused on building responsive, user-focused web applications
-            with React and TypeScript with a 6+ year background of professional
+          <p class="text-center w-6xl">
+            I'm focused on building responsive, user-focused web applications in
+            React and TypeScript with a 6+ year background of professional
             graphic design experience. I'm always eager to learn more in this
             fast paced industry.
           </p>
