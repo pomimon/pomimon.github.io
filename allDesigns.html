@@ -89,7 +89,7 @@
       </p>
     </div>
     <div id="cards"></div>
-    <div class="drawer drawer-end z-90">
+    <div class="drawer drawer-end z-50">
       <input id="image-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-side">
         <label for="image-drawer" class="drawer-overlay"></label>
@@ -105,10 +105,12 @@
             class="text-3xl font-bold mb-4 text-primary"
           ></h2>
 
+          <div id="drawer-software" class="flex gap-2 mb-4"></div>
+
           <p id="drawer-description" class="text-lg mb-8"></p>
 
           <div id="drawer-images" class="flex flex-col gap-6">
-            <!-- Images will be inserted here -->
+
           </div>
         </div>
       </div>
@@ -138,17 +140,40 @@
         document.getElementById("drawer-description").textContent =
           project.description;
 
+        // Update software badges
+        const softwareContainer = document.getElementById("drawer-software");
+        softwareContainer.innerHTML = "";
+
+        if (project.software && project.software.length > 0) {
+          project.software.forEach((tool) => {
+            const badge = document.createElement("span");
+            badge.className = "badge badge-info badge-sm";
+            badge.textContent = tool;
+            softwareContainer.appendChild(badge);
+          });
+        }
+
         // Clear previous images
         const imagesContainer = document.getElementById("drawer-images");
         imagesContainer.innerHTML = "";
 
-        // Add all project images
-        project.images.forEach((imagePath) => {
-          const img = document.createElement("img");
-          img.src = `./assets/designs/${imagePath}`;
-          img.alt = project.title;
-          img.className = "w-full rounded-lg shadow-md";
-          imagesContainer.appendChild(img);
+        // Add all project images and text blocks
+        project.images.forEach((item) => {
+          // Check if it's a text block or image
+          if (typeof item === "object" && item.type === "text") {
+            // Create text block
+            const textBlock = document.createElement("div");
+            textBlock.className = "bg-base-300 p-6 rounded-lg";
+            textBlock.innerHTML = `<p class="text-base leading-relaxed">${item.content}</p>`;
+            imagesContainer.appendChild(textBlock);
+          } else {
+            // Create image (item is just a string filename)
+            const img = document.createElement("img");
+            img.src = `./assets/designs/${item}`;
+            img.alt = project.title;
+            img.className = "w-full rounded-lg shadow-md";
+            imagesContainer.appendChild(img);
+          }
         });
 
         // Open drawer
@@ -191,6 +216,7 @@
       const projects = [
         {
           title: "BCLC Community Impact Reports",
+          software: ["Adobe InDesign", "Adobe Photoshop", "Adobe Illustrator"],
           description:
             "The Province of B.C. established BCLC 35 years ago to give back to communities and support growth across the province. The annual Community Impact Reports showcase how gambling revenue gets distributed to benefit communities, provincial programs, charities, and major events throughout B.C. I worked on producing these reports, handling everything from layout design and typesetting to photo editing and copy refinement. I also made sure everything stayed on-brand and collaborated with stakeholders throughout the process to incorporate feedback and keep everything accurate.",
           thumbnail: "BCLC-thumbnail.jpg",
@@ -205,6 +231,7 @@
         },
         {
           title: "BCLC Quarterly Digest",
+          software: ["Adobe InDesign", "Adobe Photoshop"],
           description:
             "The Lottery Winners Quarterly Digest highlights the top wins and inspiring stories from each quarter. I designed the layout based on stakeholder requirements and the content they provided, handled photo editing to enhance quality, took care of the typesetting, and refined the copy to keep everything clear and consistent throughout.",
           thumbnail: "lotto-b.jpg",
@@ -212,6 +239,11 @@
             "lotto-ipad.jpg",
             "lotto-news.jpg",
             "lotto-b.jpg",
+            {
+              type: "text",
+              content:
+                "This project involved close collaboration with stakeholders to ensure accuracy and maintain brand consistency throughout all materials. The reports were distributed both digitally and in print across various communities in British Columbia.",
+            },
             "lotto-1.png",
             "lotto-2.png",
             "lotto-3.png",
@@ -219,6 +251,7 @@
         },
         {
           title: "Cider Days",
+          software: ["Affinity Designer", "Affinity Photo"],
           description:
             "Cider Days is a concept project for a hard cider brand that focuses on bold, unique flavors and a playful, approachable identity. For the packaging design, I wanted to capture the brand’s fun and energetic spirit with vibrant colors and dynamic visuals, all tied together with a retro-inspired style. The goal was to create a design that feels nostalgic yet fresh, evoking a sense of joy and discovery while standing out on the shelf. This project allowed me to experiment with blending retro aesthetics and modern design elements to bring the brand’s personality to life.Cider Days is a concept project I created for a hard cider brand built around bold flavors and a playful vibe. I designed the packaging to match that energy with lots of vibrant colors and dynamic visuals with a retro-inspired twist. The idea was to mix nostalgia with something that feels fresh and modern, creating that fun sense of discovery you get when you spot something cool on the shelf. This project gave me a chance to play around with retro aesthetics while keeping things contemporary, bringing the brand's personality to life through the design.",
           thumbnail: "cd-1.jpg",
@@ -235,6 +268,7 @@
 
         {
           title: "Halfday Skincare",
+          software: ["Affinity Designer", "Affinity Photo"],
           description:
             "Halfday Skincare is a concept project inspired by the idea of slowing down and embracing natural beauty. I designed the packaging for a minimalist, plant-based skincare brand with a clean, approachable aesthetic that doesn't feel intimidating. The goal was to create something modern and fresh that feels welcoming to everyone, keeping things simple and transparent at the core. This project gave me a chance to explore thoughtful design that encourages those little moments of relaxation and self-care we all need.",
           thumbnail: "hd-smear.jpg",
@@ -251,6 +285,7 @@
 
         {
           title: "Bowhouse",
+          software: ["Figma", "Affinity Photo"],
           description:
             "This concept landing page brings a festive vibe to a pet store with a subtle red Christmas theme and playful imagery. I went for a warm, inviting feel with soft holiday accents that complement cute pet photos without going overboard. The design features a cheerful headline and an easy-to-navigate layout that highlights holiday promotions, gift ideas, and seasonal treats. I kept the tone lighthearted and joyful, balancing holiday spirit with clean functionality to make the shopping experience simple and fun for pet owners during the season.",
           thumbnail: "bh-comp.jpg",
@@ -265,6 +300,7 @@
 
         {
           title: "Lagom Concepts",
+          software: ["Adobe Illustrator"],
           description:
             "Lagom Concepts is a children's clothing brand based in Vancouver, BC. They wanted playful, adventure-themed illustrations featuring a lovable bear character, so I created a series of illustrations that brought that vision to life. Along with the illustrations, I designed their business cards, hang tags, stickers, buttons, and luggage tags. For the business cards, I went with a sleek black design with a clear varnish finish and kept the text minimal for a subtle but impactful look. I carried that same style through to the product tags to keep everything cohesive and on-brand.",
           thumbnail: "lc-1.jpg",
@@ -288,6 +324,7 @@
 
         {
           title: "Illumine Creative",
+          software: ["Adobe Illustrator", "Adobe Photoshop"],
           description:
             "Illumine Creative is my personal brand that I've built over the years, inspired by my endless curiosity and love for picking up new hobbies. I chose the name 'Illumine' because it means 'to light up', which captures that moment when someone's face lights up after receiving a thoughtful gift. Adding 'Creative' keeps things open and flexible, so I can experiment with different crafts and ideas without boxing myself in. It's really a reflection of my passion for making meaningful, handmade items that bring people a little joy and connection.",
           thumbnail: "ip-7.jpg",
