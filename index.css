@@ -54,3 +54,15 @@ html {
     }
   }
 }
+
+
+.is-big{
+  width: 24px;
+  height: 24px;
+  }
+
+
+svg {
+  width: 12px;
+  height: 12px;
+}
