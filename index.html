@@ -99,8 +99,8 @@
           <div class="mt-16 animate-bounce">
             <a href="#projects">
               <i
-                class="w-10 h-10 mx-auto text-base-content"
                 data-feather="arrow-down"
+                class="is-big mx-auto text-base-content"
               ></i>
             </a>
           </div>
@@ -117,8 +117,10 @@
           <h2>Projects</h2>
         </div>
 
-        <!--CARDS start-->
-        <!--FIRST ROW-->
+<!-- ===========================================================================
+        CARDS start
+        FIRST ROW
+=========================================================================== -->
         <div
           class="flex flex-col md:flex-row w-full py-10 justify-center gap-8 px-10"
         >
@@ -127,17 +129,15 @@
           >
             <figure class="rounded-tl-2xl overflow-hidden h-64">
               <img
-                src="./assets/pokedex2.jpg"
+                src="./assets/pokedex.png"
                 alt="Pokedex"
                 class="w-full h-full object-cover"
               />
             </figure>
             <div class="card-body text-white">
-              <h2 class="card-title">Pokedex</h2>
+              <h2 class="card-title">Pokedex V1</h2>
               <p>
-                A Pokémon pokédex displaying information for the first 151
-                Pokémon, including types, stats, flavor text, and evolution
-                chains.
+                Pokédex V1 built in React, displays various information for the original 151 Pokémon.
               </p>
               <div class="card-actions justify-end">
                 <a
@@ -146,16 +146,7 @@
                   rel="noopener noreferrer"
                 >
                   <button class="btn btn-info shadow-none mt-5">
-                    Live React demo
-                  </button>
-                </a>
-                <a
-                  href="https://pomimon.github.io/pokedex-vue/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button class="btn btn-info shadow-none mt-5">
-                    Live Vue demo
+                    View <i data-feather="external-link"></i>
                   </button>
                 </a>
                 <a
@@ -163,13 +154,63 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button class="btn btn-info shadow-none mt-5">Github</button>
+                  <button class="btn btn-info shadow-none mt-5">
+                    Code <i data-feather="external-link"></i>
+                  </button>
                 </a>
               </div>
             </div>
           </div>
 
           <div class="divider md:divider-horizontal h-60 self-center"></div>
+
+          <div
+            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
+          >
+            <figure class="rounded-tl-2xl overflow-hidden h-64">
+              <img
+                src="./assets/pokedex2.png"
+                alt="Pokedex V2"
+                class="w-full h-full object-cover"
+              />
+            </figure>
+            <div class="card-body text-white">
+              <h2 class="card-title">Pokedex V2</h2>
+              <p>
+               Pokedex V2 built in Vue with more interactivity, displays information for the original 151 Pokémon.
+              </p>
+              <div class="card-actions justify-end">
+                <a
+                  href="https://pomimon.github.io/pokedex-vue/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button class="btn btn-info shadow-none mt-5">
+                    View <i data-feather="external-link"></i>
+                  </button>
+                </a>
+                <a
+                  href="https://github.com/pomimon/pokedex-vue"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="btn btn-info hover:btn-info/50 shadow-none mt-5"
+                  >
+                    Code <i data-feather="external-link"></i>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- ===========================================================================
+        SECOND ROW
+============================================================================ -->
+        <div
+          class="flex flex-col md:flex-row w-full py-10 justify-center gap-8 px-10"
+        >
 
           <div
             class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
@@ -184,8 +225,7 @@
             <div class="card-body text-white">
               <h2 class="card-title">Wildlife streams</h2>
               <p>
-                A frontend-focused streaming web application that aggregates and
-                displays live animal cam streams from multiple sources
+               Not currently hosted. A streaming web application that aggregates and displays live animal cam streams from multiple sources.
               </p>
               <div class="card-actions justify-end">
                 <a
@@ -193,8 +233,8 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button class="btn btn-info shadow-none mt-5">
-                    Live demo
+                  <button disabled class="btn btn-info shadow-none mt-5">
+                    View
                   </button>
                 </a>
                 <a
@@ -205,18 +245,15 @@
                   <button
                     class="btn btn-info hover:btn-info/50 shadow-none mt-5"
                   >
-                    Github
+                    Code
                   </button>
                 </a>
               </div>
             </div>
           </div>
-        </div>
 
-        <!--SECOND ROW-->
-        <div
-          class="flex flex-col md:flex-row w-full py-10 justify-center gap-8 px-10"
-        >
+          <div class="divider md:divider-horizontal h-60 self-center"></div>
+
           <div
             class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
           >
@@ -234,21 +271,22 @@
                 Affinity Designer, or Figma.
               </p>
               <div class="card-actions justify-end">
-                <a
-                  href="illustrations.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="illustrations.html">
                   <button class="btn btn-info shadow-none mt-5">
-                    view illustrations
+                    View
                   </button>
                 </a>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="divider md:divider-horizontal h-60 self-center"></div>
-
+<!-- ===========================================================================
+        THIRD ROW
+============================================================================ -->
+        <div
+          class="flex flex-col md:flex-row w-full py-10 justify-center gap-8 px-10"
+        >
           <div
             class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
           >
@@ -268,7 +306,7 @@
               <div class="card-actions justify-end">
                 <a href="allDesigns.html" rel="noopener noreferrer">
                   <button class="btn btn-info hover:btn-info shadow-none mt-5">
-                    view designs
+                    View
                   </button>
                 </a>
               </div>
@@ -327,7 +365,7 @@
           id="contact"
         >
           <div class="h-8 w-8 pr-2 flex items-center">
-            <i data-feather="send"></i>
+            <i data-feather="send" class="is-big" ></i>
           </div>
           Contact Me
         </button>
@@ -481,32 +519,32 @@
       }
 
       // changes speed of mouse over
-      function movePointer(x, y) {
-        if (typeof pointerX === "number" && typeof pointerY === "number") {
-          let ox = x - pointerX,
-            oy = y - pointerY;
-          velocity.tx = velocity.tx + (ox / 16) * scale * (touchInput ? 1 : -1);
-          velocity.ty = velocity.ty + (oy / 16) * scale * (touchInput ? 1 : -1);
-        }
-        pointerX = x;
-        pointerY = y;
-      }
+      // function movePointer(x, y) {
+      //   if (typeof pointerX === "number" && typeof pointerY === "number") {
+      //     let ox = x - pointerX,
+      //       oy = y - pointerY;
+      //     velocity.tx = velocity.tx + (ox / 16) * scale * (touchInput ? 1 : -1);
+      //     velocity.ty = velocity.ty + (oy / 16) * scale * (touchInput ? 1 : -1);
+      //   }
+      //   pointerX = x;
+      //   pointerY = y;
+      // }
 
-      function onMouseMove(event) {
-        touchInput = false;
-        movePointer(event.clientX, event.clientY);
-      }
+      // function onMouseMove(event) {
+      //   touchInput = false;
+      //   movePointer(event.clientX, event.clientY);
+      // }
 
-      function onTouchMove(event) {
-        touchInput = true;
-        movePointer(event.touches[0].clientX, event.touches[0].clientY);
-        event.preventDefault();
-      }
+      // function onTouchMove(event) {
+      //   touchInput = true;
+      //   movePointer(event.touches[0].clientX, event.touches[0].clientY);
+      //   event.preventDefault();
+      // }
 
-      function onMouseLeave() {
-        pointerX = null;
-        pointerY = null;
-      }
+      // function onMouseLeave() {
+      //   pointerX = null;
+      //   pointerY = null;
+      // }
     </script>
   </body>
 </html>
