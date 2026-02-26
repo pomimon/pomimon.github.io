@@ -93,11 +93,11 @@
             <a href="#projects" class="btn btn-primary btn-lg">
               <p class="text-base-100">View My Work</p>
             </a>
-            <a href="#contact" class="btn btn-outline btn-lg"> Get In Touch </a>
+            <a href="#contact" class="btn btn-outline btn-secondary btn-lg"> Get In Touch </a>
           </div>
 
           <div class="mt-16 animate-bounce">
-            <a href="#projects">
+            <a href="#experience">
               <i
                 data-feather="arrow-down"
                 class="is-big mx-auto text-base-content"
@@ -114,7 +114,7 @@
         <div
           class="text-primary flex flex-row justify-center text-4xl font-bold mb-15"
         >
-          <h2>Projects</h2>
+          <h2 >Projects</h2>
         </div>
 
 <!-- ===========================================================================
@@ -124,6 +124,48 @@
         <div
           class="flex flex-col md:flex-row w-full py-10 justify-center gap-8 px-10"
         >
+          <div
+            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
+          >
+            <figure class="rounded-tl-2xl overflow-hidden h-64">
+              <img
+                src="./assets/pokedex2.png"
+                alt="Pokedex V2"
+                class="w-full h-full object-cover"
+              />
+            </figure>
+            <div class="card-body text-white">
+              <h2 class="card-title">Pokedex V2</h2>
+              <p>
+               Pokedex V2 built in Vue with more interactivity, displays various information for the original 151 Pokémon.
+              </p>
+              <div class="card-actions justify-end">
+                <a
+                  href="https://pomimon.github.io/pokedex-vue/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button class="btn btn-info shadow-none mt-5">
+                    View <i data-feather="external-link" class="is-small"></i>
+                  </button>
+                </a>
+                <a
+                  href="https://github.com/pomimon/pokedex-vue"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button
+                    class="btn btn-info hover:btn-info/50 shadow-none mt-5"
+                  >
+                    Code <i data-feather="external-link" class="is-small"></i>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider md:divider-horizontal h-60 self-center"></div>
+
           <div
             class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
           >
@@ -161,48 +203,6 @@
               </div>
             </div>
           </div>
-
-          <div class="divider md:divider-horizontal h-60 self-center"></div>
-
-          <div
-            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
-          >
-            <figure class="rounded-tl-2xl overflow-hidden h-64">
-              <img
-                src="./assets/pokedex2.png"
-                alt="Pokedex V2"
-                class="w-full h-full object-cover"
-              />
-            </figure>
-            <div class="card-body text-white">
-              <h2 class="card-title">Pokedex V2</h2>
-              <p>
-               Pokedex V2 built in Vue with more interactivity, displays information for the original 151 Pokémon.
-              </p>
-              <div class="card-actions justify-end">
-                <a
-                  href="https://pomimon.github.io/pokedex-vue/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button class="btn btn-info shadow-none mt-5">
-                    View <i data-feather="external-link" class="is-small"></i>
-                  </button>
-                </a>
-                <a
-                  href="https://github.com/pomimon/pokedex-vue"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button
-                    class="btn btn-info hover:btn-info/50 shadow-none mt-5"
-                  >
-                    Code <i data-feather="external-link" class="is-small"></i>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
 
 <!-- ===========================================================================
@@ -228,14 +228,8 @@
                Not currently hosted. A streaming web application that aggregates and displays live animal cam streams from multiple sources.
               </p>
               <div class="card-actions justify-end">
-                <a
-                  href="https://stream-app-568744696610.us-west1.run.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button disabled class="btn btn-info shadow-none mt-5">
-                    View
-                  </button>
+                <a class="btn btn-info btn-disabled shadow-none mt-5">
+                  View <i data-feather="external-link" class="is-small"></i>
                 </a>
                 <a
                   href="https://github.com/pomimon/streaming-website"
@@ -245,7 +239,7 @@
                   <button
                     class="btn btn-info hover:btn-info/50 shadow-none mt-5"
                   >
-                    Code
+                    Code <i data-feather="external-link" class="is-small"></i>
                   </button>
                 </a>
               </div>
@@ -257,28 +251,29 @@
           <div
             class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
           >
-            <figure class="rounded-tl-2xl overflow-hidden h-64">
+            <figure class="rounded-tl-2xl overflow-hidden h-64 relative">
               <img
-                src="./assets/vi.jpg"
-                alt="illustrations"
+                src="./assets/gradient.jpg"
+                alt="design work"
                 class="w-full h-full object-cover"
               />
+              <div class="absolute left-6 bottom-6 text-2xl text-base-100 font-bold">
+                ( ⓛ ﻌ ⓛ *)
+              </div>
             </figure>
             <div class="card-body text-white">
-              <h2 class="card-title">Illustrations</h2>
+              <h2 class="card-title">Coming soon</h2>
               <p>
-                A mix of vector illustrations created in Adobe Illustrator,
-                Affinity Designer, or Figma.
+                New project coming soon
               </p>
               <div class="card-actions justify-end">
-                <a href="illustrations.html">
-                  <button class="btn btn-info shadow-none mt-5">
-                    View
-                  </button>
+                <a class="btn btn-disabled btn-info shadow-none mt-5">
+                  View
                 </a>
               </div>
             </div>
           </div>
+
         </div>
 
 <!-- ===========================================================================
@@ -290,18 +285,50 @@
           <div
             class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
           >
-            <figure class="rounded-tl-2xl overflow-hidden h-64">
+            <figure class="rounded-tl-2xl overflow-hidden h-64 relative">
               <img
-                src="./assets/dw.jpg"
+                src="./assets/gradient.jpg"
                 alt="design work"
                 class="w-full h-full object-cover"
               />
+              <div class="absolute left-6 bottom-6 text-4xl text-base-100 font-bold">
+                (●ↀωↀ●)✧
+              </div>
+            </figure>
+            <div class="card-body text-white">
+              <h2 class="card-title">Illustrations</h2>
+              <p>
+                A mix of random monsters and somewhat cute things
+              </p>
+              <div class="card-actions justify-end">
+                <a href="illustrations.html">
+                  <button class="btn btn-info shadow-none mt-5">
+                    View
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider md:divider-horizontal h-60 self-center"></div>
+
+          <div
+            class="card bg-base-100 w-full md:w-120 shadow-sm rounded-none rounded-tl-2xl rounded-br-2xl"
+          >
+            <figure class="rounded-tl-2xl overflow-hidden h-64 relative">
+              <img
+                src="./assets/gradient.jpg"
+                alt="design work"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute left-6 bottom-6 text-4xl text-base-100 font-bold">
+                =＾● ⋏ ●＾=
+              </div>
             </figure>
             <div class="card-body text-white">
               <h2 class="card-title">Design</h2>
               <p>
-                A collection of design projects created using Adobe Creative
-                Cloud, Affinity Designer, or Figma across various styles.
+                A collection of design projects.
               </p>
               <div class="card-actions justify-end">
                 <a href="designs.html">
@@ -314,47 +341,58 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="w-full px-20 pt-10 pb-10 bg-base-100">
-        <div
-          class="text-primary flex flex-column justify-center text-4xl font-bold mb-15"
-        >
-          <h2>Experience</h2>
-        </div>
-        <div class="flex flex-column justify-center text-lg mb-9">
-          <p class="text-center w-6xl">
-            I'm focused on building responsive, user-focused web applications in
-            React and TypeScript with a 6+ year background of professional
-            graphic design experience. I'm always eager to learn more in this
-            fast paced industry.
-          </p>
-        </div>
-        <div class="flex flex-column justify-center text-lg mb-5">
-          <p>Some technologies I've worked with:</p>
-        </div>
-        <div class="flex flex-wrap justify-center gap-4 mb-8">
-          <span class="badge badge-lg badge-primary">React</span>
-          <span class="badge badge-lg badge-primary">TypeScript</span>
-          <span class="badge badge-lg badge-primary">JavaScript</span>
-          <span class="badge badge-lg badge-primary">Tailwind CSS</span>
-          <span class="badge badge-lg badge-primary">HTML/CSS</span>
-          <span class="badge badge-lg badge-primary">Git</span>
-          <span class="badge badge-lg badge-primary">Bun</span>
-          <span class="badge badge-lg badge-primary">Python</span>
-        </div>
-
-        <!--<div class="flex justify-center mt-15">
-          <a
-            href="./assets/Carmen_Ma_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button class="btn btn-neutral btn-lg text-white">
-              View My Resume
-            </button>
-          </a>
-        </div>-->
+    <div class="w-full px-20 pt-10 pb-10 bg-base-100" id="experience">
+      <div
+        class="text-primary flex flex-column justify-center text-4xl font-bold mb-15"
+      >
+        <h2>Experience</h2>
       </div>
+      <div class="flex flex-column justify-center text-lg mb-9">
+        <p class="text-center w-6xl">
+          I'm focused on building responsive, user-focused web applications in
+          React and TypeScript with a 6+ year background of professional
+          graphic design experience. I'm always eager to learn more in this
+          fast paced industry.
+        </p>
+      </div>
+      <div class="flex flex-column justify-center text-lg mb-5">
+        <p>Some technologies and tools I've worked with:</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <span class="badge badge-md badge-primary">React</span>
+        <span class="badge badge-md badge-primary">TypeScript</span>
+        <span class="badge badge-md badge-primary">JavaScript</span>
+        <span class="badge badge-md badge-primary">Python</span>
+        <span class="badge badge-md badge-primary">HTML/CSS</span>
+        <span class="badge badge-md badge-info">Jest</span>
+        <span class="badge badge-md badge-info">Bootstrap</span>
+        <span class="badge badge-md badge-info">Tailwind CSS</span>
+        <span class="badge badge-md badge-info">Git</span>
+        <span class="badge badge-md badge-info">Bun</span>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
+        <span class="badge badge-md badge-secondary">Adobe Creative Cloud</span>
+        <span class="badge badge-md badge-secondary">Affinity Suite</span>
+        <span class="badge badge-md badge-secondary">Figma</span>
+        <span class="badge badge-md badge-secondary">Branding</span>
+        <span class="badge badge-md badge-secondary">Illustration</span>
+        <span class="badge badge-md badge-secondary">Canva</span>
+      </div>
+
+      <!--<div class="flex justify-center mt-15">
+        <a
+          href="./assets/Carmen_Ma_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button class="btn btn-neutral btn-lg text-white">
+            View My Resume
+          </button>
+        </a>
+      </div>-->
     </div>
 
     <!--FOOTER-->
@@ -397,10 +435,10 @@
       step();
 
       window.addEventListener("resize", resize);
-      canvas.addEventListener("mousemove", onMouseMove);
-      canvas.addEventListener("touchmove", onTouchMove);
-      canvas.addEventListener("touchend", onMouseLeave);
-      document.addEventListener("mouseleave", onMouseLeave);
+      // canvas.addEventListener("mousemove", onMouseMove);
+      // canvas.addEventListener("touchmove", onTouchMove);
+      // canvas.addEventListener("touchend", onMouseLeave);
+      // document.addEventListener("mouseleave", onMouseLeave);
 
       function generate() {
         for (let i = 0; i < STAR_COUNT; i++) {
