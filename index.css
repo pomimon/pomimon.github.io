@@ -39,10 +39,25 @@ html {
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  .buttons {
+    justify-content: flex-end;
+    gap: 1rem;
+
+    &.are-medium {
+      --bulma-control-size: 0.9rem;
+    }
+  }
 }
 
 .card-content {
+  display: flex;
   flex: 1;
+  flex-direction: column;
+
+  .content {
+    flex: 1;
+  }
 }
 
 @media screen and (min-width: 1024px) {

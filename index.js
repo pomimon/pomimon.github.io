@@ -1,7 +1,4 @@
 const App = {
-  components: {
-    Home,
-  },
   data() {
     return {
       menuActive: false,
@@ -34,9 +31,9 @@ const App = {
   <div>
     <nav class="navbar is-warning px-4" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item has-text-primary is-size-5" href="#">
+        <RouterLink class="navbar-item has-text-primary is-size-5" to="/">
           Carmen Ma
-        </a>
+        </RouterLink>
 
         <a
           role="button"
@@ -67,7 +64,7 @@ const App = {
       </div>
     </nav>
 
-    <Home/>
+    <RouterView />
 
     <footer class="footer" id="contact">
       <div class="has-text-centered">
@@ -117,23 +114,44 @@ const Card = {
           <h5 v-if="title" v-text="title"/>
           <p v-if="description" v-text="description"/>
         </div>
-      </div>
 
-      <div class="card-footer" v-if="showFooter">
-        <a
-          class="card-footer-item"
-          target="_blank"
-          rel="noopener noreferrer"
-          v-for="action in actions"
-          v-text="action.name"
-          :href="action.url"
-        />
+        <div class="buttons mt-4 are-medium" v-if="showFooter">
+          <template v-for="action in actions">
+            <RouterLink
+              class="button is-info is-outlined is-rounded"
+              v-if="action.route"
+              v-text="action.name"
+              :to="action.route"
+            />
+
+            <a
+              v-else
+              class="button is-info is-outlined is-rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+              v-text="action.name"
+              :href="action.url"
+            />
+          </template>
+        </div>
       </div>
     </div>
   `,
 }
 
+const routes = [
+  { path: "/", component: Home },
+  { path: "/designs", component: Designs },
+  { path: "/illustrations", component: Illustrations },
+]
+
+const router = VueRouter.createRouter({
+  history: VueRouter.createMemoryHistory(),
+  routes,
+})
+
 Vue
   .createApp(App)
   .component("Card", Card)
+  .use(router)
   .mount("#app")

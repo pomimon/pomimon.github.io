@@ -62,7 +62,7 @@ const Home = {
           title: "Illustrations",
           description: "A mix of random monsters and somewhat cute things.",
           actions: [
-            { name: "View", route: "illustrations" },
+            { name: "View", route: "/illustrations" },
           ],
         },
         {
@@ -70,7 +70,7 @@ const Home = {
           title: "Design",
           description: "A collection of design projects.",
           actions: [
-            { name: "View", route: "designs" },
+            { name: "View", route: "/designs" },
           ],
         },
       ]
@@ -85,7 +85,7 @@ const Home = {
               Hey, I'm Carmen
             </h1>
 
-            <p class="subtitle mx-6 mt-3">
+            <div class="subtitle mx-6 mt-3">
               <div class="columns">
                 <div class="column"/>
                 <div class="column is-half">
@@ -93,7 +93,7 @@ const Home = {
                 </div>
                 <div class="column"/>
               </div>
-            </p>
+            </div>
 
             <div>
               <a class="button mx-2" href="#projects">
