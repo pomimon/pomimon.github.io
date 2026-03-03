@@ -42,7 +42,7 @@ const Home = {
           ],
         },
         {
-          image: "./assets/streams.png",
+          image: "./assets/streams.jpg",
           title: "Wildlife streams",
           description: "A streaming web application that aggregates and displays live animal cam streams from multiple sources.",
           actions: [
