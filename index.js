@@ -188,8 +188,24 @@ const router = VueRouter.createRouter({
   },
 })
 
-Vue
-  .createApp(App)
-  .component("Card", Card)
-  .use(router)
-  .mount("#app")
+const app = Vue.createApp(App)
+
+Sentry.init({
+  app,
+  dsn: "https://318a38bfcb42f98d9f7eeb1df6ce898a@o4510981864292352.ingest.us.sentry.io/4510981874319360",
+  sendDefaultPii: true,
+  replaysSessionSampleRate: 1,
+  integrations: [
+    Sentry.browserTracingIntegration(),
+    Sentry.replayIntegration(),
+  ],
+});
+
+app.config.errorHandler = function (error, vm, info) {
+  console.error(error, vm, info)
+  Sentry.captureException(error)
+}
+
+app.component("Card", Card)
+app.use(router)
+app.mount("#app")
