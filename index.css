@@ -23,12 +23,12 @@ warning - dark grey
 danger - light grey
 */
 
-html {
-  scroll-behavior: smooth;
-}
-
 .tags {
   justify-content: center;
+
+  &.is-left {
+    justify-content: left;
+  }
 }
 
 .footer {
@@ -39,6 +39,7 @@ html {
   display: flex;
   flex-direction: column;
   height: 100%;
+
 
   .buttons {
     justify-content: flex-end;
@@ -60,12 +61,44 @@ html {
   }
 }
 
+.object-cover {
+  object-fit: cover;
+}
+
+#hero {
+  .hero-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .hero-starfield {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .starfield-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .section.is-medium {
     padding: 6.5rem 4.5rem;
   }
 }
 
-.object-cover {
-  object-fit: cover;
+@media screen and (min-width: 769px) {
+  .modal-content, .modal-card {
+    margin: 0 auto;
+    max-height: calc(100vh - var(--bulma-modal-content-spacing-tablet));
+    width: 55rem;
+  }
 }

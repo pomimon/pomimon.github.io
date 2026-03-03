@@ -1,6 +1,7 @@
 const Home = {
   data() {
     return {
+      starfield: null,
       skills: [
         { name: "React", theme: "primary" },
         { name: "TypeScript", theme: "primary" },
@@ -76,33 +77,50 @@ const Home = {
       ]
     }
   },
+  mounted() {
+    this.starfield = new StarField(this.$refs.starfield)
+  },
+  unmounted() {
+    if (this.starfield) {
+      this.starfield.destroy()
+      this.starfield = null
+    }
+  },
   template: `
     <main>
-      <section class="hero is-success is-fullheight-with-navbar">
+      <section class="hero is-danger is-fullheight-with-navbar hero-starfield" id="hero">
+        <canvas ref="starfield" class="starfield-canvas"/>
+
         <div class="hero-body">
           <div class="container has-text-centered">
-            <h1 class="title is-size-1 has-text-weight-bold">
+            <h1 class="title has-text-weight-bold has-text-info">
               Hey, I'm Carmen
             </h1>
 
             <div class="subtitle mx-6 mt-3">
               <div class="columns">
                 <div class="column"/>
-                <div class="column is-half">
+                <div class="column is-half has-text-white">
                   a frontend developer with a background in design, building React and TypeScript applications with an emphasis on reusable components, responsive layouts, and usability.
                 </div>
                 <div class="column"/>
               </div>
             </div>
 
-            <div>
-              <a class="button mx-2" href="#projects">
+            <div class= gap-4>
+              <RouterLink
+                class="button is-primary has-text-warning is-medium is-responsive mx-2"
+                to="#projects"
+              >
                 View My Work
-              </a>
+              </RouterLink>
 
-              <a class="button mx-2" href="#contact">
+              <RouterLink
+                class="button is-outlined is-success is-medium is-responsive mx-2"
+                to="#contact"
+              >
                 Get In Touch
-              </a>
+              </RouterLink>
             </div>
           </div>
         </div>
@@ -110,7 +128,7 @@ const Home = {
 
       <section class="section" id="projects">
         <div class="container">
-          <div class="title is-2 has-text-centered has-text-info">
+          <div class="title is-2 has-text-centered has-text-info mb-6">
             Projects
           </div>
 
@@ -131,7 +149,6 @@ const Home = {
             </div>
             <div class="column"/>
           </div>
-
         </div>
       </section>
 

@@ -28,62 +28,72 @@ const App = {
     },
   },
   template: `
-  <div>
-    <nav class="navbar is-warning px-4" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <RouterLink class="navbar-item has-text-primary is-size-5" to="/">
-          Carmen Ma
-        </RouterLink>
+    <div>
+      <nav
+        role="navigation"
+        aria-label="main navigation"
+        class="navbar is-warning px-4"
+      >
+        <div class="navbar-brand">
+          <RouterLink
+            to="/"
+            class="navbar-item has-text-primary is-size-5"
+            v-text="'Carmen Ma'"
+          />
 
-        <a
-          role="button"
-          aria-label="menu"
-          aria-expanded="false"
-          :class="navClass('navbar-burger')"
-          @click="toggleHamburger"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-      <div :class="navClass('navbar-menu')">
-        <div class="navbar-end">
           <a
-            class="navbar-item has-text-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-            v-for="link in links"
-            :key="link.href"
-            :href="link.href"
+            role="button"
+            aria-label="menu"
+            aria-expanded="false"
+            :class="navClass('navbar-burger')"
+            @click="toggleHamburger"
           >
-            <i :data-feather="link.icon"></i>
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
           </a>
         </div>
-      </div>
-    </nav>
 
-    <RouterView />
+        <div :class="navClass('navbar-menu')">
+          <div class="navbar-end">
+            <a
+              v-for="link in links"
+              :key="link.href"
+              :href="link.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="navbar-item has-text-primary"
+            >
+              <i :data-feather="link.icon" />
+            </a>
+          </div>
+        </div>
+      </nav>
 
-    <footer class="footer" id="contact">
-      <div class="has-text-centered">
-        <a class="button is-danger has-text-white" href="mailto:carmen.ma73@gmail.com">
-          <span class="icon">
-            <i data-feather="send"></i>
-          </span>
+      <RouterView />
 
-          <span>
-            Contact Me
-          </span>
-        </a>
-      </div>
-    </footer>
-  </div>
+      <footer id="contact" class="footer">
+        <div class="has-text-centered">
+          <a
+            href="mailto:carmen.ma73@gmail.com"
+            class="button is-danger has-text-white"
+          >
+            <span class="icon">
+              <i data-feather="send" />
+            </span>
+            <span v-text="'Contact Me'" />
+          </a>
+        </div>
+      </footer>
+    </div>
   `,
 }
 
 const Card = {
+  emits: [
+    "image-click",
+  ],
   props: {
     image: {
       type: String,
@@ -112,10 +122,15 @@ const Card = {
     },
   },
   template: `
-    <div class="card">
+    <div class="card is-shadowless has-background-danger">
       <div class="card-image">
         <figure :class="imageClass">
-          <img class="object-cover" :src="image" :alt="title"/>
+          <img
+            class="object-cover"
+            :src="image"
+            :alt="title"
+            @click="$emit('image-click')"
+          />
         </figure>
       </div>
 
@@ -136,11 +151,12 @@ const Card = {
 
             <a
               v-else
-              class="button is-info is-outlined is-rounded"
+              class="button is-outlined is-rounded is-info"
               target="_blank"
               rel="noopener noreferrer"
               v-text="action.name"
               :href="action.url"
+              :disabled="!action.url || null"
             />
           </template>
         </div>
@@ -156,8 +172,20 @@ const routes = [
 ]
 
 const router = VueRouter.createRouter({
-  history: VueRouter.createMemoryHistory(),
+  history: VueRouter.createWebHashHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: "smooth",
+      }
+    } else {
+      return { top: 0 }
+    }
+  },
 })
 
 Vue

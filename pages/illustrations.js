@@ -1,6 +1,8 @@
 const Illustrations = {
   data() {
     return {
+      modalOpen: false,
+      selectedProject: null,
       cards: [
         { title: "Bluebird", image: "./assets/illustrations/bluebird.jpg" },
         { title: "Pinkbird", image: "./assets/illustrations/pinkbird.jpg" },
@@ -19,12 +21,27 @@ const Illustrations = {
       ],
     }
   },
+    methods: {
+    openModal(card) {
+      this.modalOpen = true
+      this.selectedProject = card
+    },
+    closeModal() {
+      this.modalOpen = false
+      this.selectedProject = null
+    },
+  },
+  watch: {
+    modalOpen(isOpen) {
+      document.documentElement.classList.toggle("is-clipped", isOpen)
+    }
+  },
   template: `
     <main>
       <section class="section" id="projects">
         <div class="container">
           <div class="columns">
-            <div class="column"/>
+            <div class="column" />
             <div class="column is-four-fifths">
               <div class="title is-2 is-spaced has-text-centered has-text-info">
                 Illustrations
@@ -36,14 +53,30 @@ const Illustrations = {
 
               <div class="columns is-multiline is-3-tablet is-8-desktop">
                 <div class="column is-half" v-for="card in cards">
-                  <Card :image="card.image"/>
+                  <Card :image="card.image" @image-click="openModal(card)" />
                 </div>
               </div>
             </div>
-            <div class="column"/>
+            <div class="column" />
           </div>
         </div>
       </section>
+
+      <Teleport to="body">
+        <div class="modal" :class="{ 'is-active': modalOpen }">
+          <div class="modal-background" @click="closeModal"/>
+
+          <div class="modal-card" v-if="selectedProject">
+            <button class="modal-close" aria-label="close" @click="closeModal"/>
+
+            <section class="modal-card-body" v-if="selectedProject">
+              <figure class="image">
+                <img :src="selectedProject.image" :alt="selectedProject.title" />
+              </figure>
+            </section>
+          </div>
+        </div>
+      </Teleport>
     </main>
   `,
 }
