@@ -24,7 +24,7 @@ const Home = {
       ],
       cards: [
         {
-          image: "./assets/pokedex2.png",
+          image: "./assets/pokedex2.jpg",
           title: "Pokedex V2",
           description: "Pokedex V2 built in Vue with more interactivity, displays various information for the original 151 Pokémon.",
           actions: [
@@ -33,7 +33,7 @@ const Home = {
           ],
         },
         {
-          image: "./assets/pokedex.png",
+          image: "./assets/pokedex.jpg",
           title: "Pokedex V1",
           description: "Pokédex V1 built in React, displays various information for the original 151 Pokémon.",
           actions: [

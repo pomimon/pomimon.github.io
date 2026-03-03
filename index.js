@@ -3,10 +3,26 @@ const App = {
     return {
       menuActive: false,
       links: [
-        { href: "./assets/Carmen_Ma_Resume.pdf", icon: "file-text" },
-        { href: "https://github.com/pomimon", icon: "github" },
-        { href: "https://www.linkedin.com/in/carmen-ma12343/", icon: "linkedin" },
-        { href: "mailto:carmen.ma73@gmail.com", icon: "mail" },
+        {
+          href: "./assets/Carmen_Ma_Resume.pdf",
+          icon: "file-text",
+          text: "View Resume"
+        },
+        {
+          href: "https://github.com/pomimon",
+          icon: "github",
+          text: "View GitHub"
+        },
+        {
+          href: "https://www.linkedin.com/in/carmen-ma12343/",
+          icon: "linkedin",
+          text: "View LinkedIn"
+        },
+        {
+          href: "mailto:carmen.ma73@gmail.com",
+          icon: "mail",
+          text: "Let's Chat"
+        },
       ],
     }
   },
@@ -64,6 +80,7 @@ const App = {
               target="_blank"
               rel="noopener noreferrer"
               class="navbar-item has-text-primary"
+              :aria-label="link.text"
             >
               <i :data-feather="link.icon" />
             </a>
