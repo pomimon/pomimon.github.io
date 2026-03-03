@@ -92,8 +92,18 @@ const Card = {
     title: String,
     description: String,
     actions: Array,
+    ratio: String,
   },
   computed: {
+    imageClass() {
+      const classes = ["image"]
+
+      if (this.ratio) {
+        classes.push(`is-${this.ratio}`)
+      }
+
+      return classes
+    },
     showContent() {
       return this.title || this.description
     },
@@ -104,8 +114,8 @@ const Card = {
   template: `
     <div class="card">
       <div class="card-image">
-        <figure class="image is-16by9">
-          <img :src="image" :alt="title"/>
+        <figure :class="imageClass">
+          <img class="object-cover" :src="image" :alt="title"/>
         </figure>
       </div>
 

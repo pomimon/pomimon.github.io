@@ -124,6 +124,7 @@ const Home = {
                     :title="card.title"
                     :description="card.description"
                     :actions="card.actions"
+                    ratio="16by9"
                   />
                 </div>
               </div>

@@ -65,3 +65,7 @@ html {
     padding: 6.5rem 4.5rem;
   }
 }
+
+.object-cover {
+  object-fit: cover;
+}
