@@ -23,6 +23,10 @@ warning - dark grey
 danger - light grey
 */
 
+body{
+  background-color: var(--bulma-warning);
+}
+
 .tags {
   justify-content: center;
 
