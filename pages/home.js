@@ -24,6 +24,15 @@ const Home = {
       ],
       cards: [
         {
+          image: "./assets/compresso.jpg",
+          title: "Compresso",
+          description: "A vibe coded single-file browser tool for decompressing and compressing LZ4 files. No server, no dependencies.",
+          actions: [
+            { name: "View", url: "https://pomimon.github.io/compresso/" },
+            { name: "Code", url: "https://github.com/pomimon/compresso" },
+          ],
+        },
+        {
           image: "./assets/pokedex2.jpg",
           title: "Pokedex V2",
           description: "Pokedex V2 built in Vue with more interactivity, displays various information for the original 151 Pokémon.",
