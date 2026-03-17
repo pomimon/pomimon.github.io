@@ -27,7 +27,7 @@ const Home = {
         {
           image: "./assets/worldy.jpg",
           title: "Worldy",
-          description: "A JRPG style walking world made in Phaser and Gridengine, on going project ",
+          description: "A JRPG style walking world made in Phaser and Gridengine, on-going project ",
           actions: [
             { name: "View", url: "https://pomimon.github.io/worldy" },
             { name: "Code", url: "https://github.com/pomimon/worldy" },
