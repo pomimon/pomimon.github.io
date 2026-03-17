@@ -4,6 +4,12 @@ const Illustrations = {
       modalOpen: false,
       selectedProject: null,
       cards: [
+        { title: "Lemons", image: "./assets/illustrations/lemons.jpg" },
+        { title: "Sprinkles", image: "./assets/illustrations/sprinkles.jpg" },
+
+        { title: "cat", image: "./assets/illustrations/cat.jpg" },
+        { title: "Dog", image: "./assets/illustrations/dog.jpg" },
+
         { title: "Bluebird", image: "./assets/illustrations/bluebird.jpg" },
         { title: "Pinkbird", image: "./assets/illustrations/pinkbird.jpg" },
 
@@ -48,7 +54,9 @@ const Illustrations = {
               </div>
 
               <div class="subtitle is-6 has-text-centered has-text-white ">
-                A variety of vector work I've created using Adobe Illustrator, Affinity Designer, or Figma. Many of these monster illustrations begins with a few random pen strokes. I play around until I start seeing something emerge from the chaos, and that's what it becomes. It's a spontaneous, discovery-driven process where the final design reveals itself organically. This collection demonstrates my approach to illustration and design across different styles and subjects, blending intuition with technical execution.
+                A variety of work I've created using Adobe Illustrator, Affinity Designer, Figma or Procreate. Most of these are vector based and many of these monster illustrations begins with a few random pen strokes.
+                I play around until I start seeing something emerge from the chaos, and that's what it becomes. It's a spontaneous, discovery-driven process where the final design reveals itself organically.
+                This collection demonstrates my approach to illustration and design across different styles and subjects, blending intuition with technical execution.
               </div>
 
               <div class="columns is-multiline is-3-tablet is-8-desktop">

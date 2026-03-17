@@ -4,6 +4,7 @@ const Home = {
       starfield: null,
       skills: [
         { name: "React", theme: "primary" },
+        { name: "Vue", theme: "primary" },
         { name: "TypeScript", theme: "primary" },
         { name: "JavaScript", theme: "primary" },
         { name: "Python", theme: "primary" },
@@ -24,11 +25,20 @@ const Home = {
       ],
       cards: [
         {
+          image: "./assets/worldy.jpg",
+          title: "Worldy",
+          description: "A JRPG style walking world made in Phaser and Gridengine, on going project ",
+          actions: [
+            { name: "View", url: "https://pomimon.github.io/worldy" },
+            { name: "Code", url: "https://github.com/pomimon/worldy" },
+          ],
+        },
+        {
           image: "./assets/compresso.jpg",
           title: "Compresso",
           description: "A vibe coded single-file browser tool for decompressing and compressing LZ4 files. No server, no dependencies.",
           actions: [
-            { name: "View", url: "https://pomimon.github.io/compresso/" },
+            { name: "View", url: "https://pomimon.github.io/compresso" },
             { name: "Code", url: "https://github.com/pomimon/compresso" },
           ],
         },
