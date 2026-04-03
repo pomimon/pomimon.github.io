@@ -25,6 +25,22 @@ const Home = {
       ],
       cards: [
         {
+          image: "./assets/gradient.jpg",
+          title: "Illustrations",
+          description: "A mix of random monsters and somewhat cute things.",
+          actions: [
+            { name: "View", route: "/illustrations" },
+          ],
+        },
+        {
+          image: "./assets/gradient.jpg",
+          title: "Design",
+          description: "A collection of design projects.",
+          actions: [
+            { name: "View", route: "/designs" },
+          ],
+        },
+        {
           image: "./assets/worldy.jpg",
           title: "Worldy",
           description: "A JRPG style walking world made in Phaser and Gridengine, on-going project ",
@@ -77,22 +93,6 @@ const Home = {
             { name: "View", url: null },
           ],
         },
-        {
-          image: "./assets/gradient.jpg",
-          title: "Illustrations",
-          description: "A mix of random monsters and somewhat cute things.",
-          actions: [
-            { name: "View", route: "/illustrations" },
-          ],
-        },
-        {
-          image: "./assets/gradient.jpg",
-          title: "Design",
-          description: "A collection of design projects.",
-          actions: [
-            { name: "View", route: "/designs" },
-          ],
-        },
       ]
     }
   },
@@ -120,7 +120,8 @@ const Home = {
               <div class="columns">
                 <div class="column"/>
                 <div class="column is-half has-text-white">
-                  a frontend developer with a background in design, building React and TypeScript applications with an emphasis on reusable components, responsive layouts, and usability.
+                  A designer who codes, creating brand identities, marketing materials,
+                  and digital experiences, with the frontend skills to bring them to life in React and TypeScript
                 </div>
                 <div class="column"/>
               </div>
