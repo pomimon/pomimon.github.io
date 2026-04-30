@@ -54,7 +54,7 @@ const Illustrations = {
             <div class="column" />
             <div class="column is-four-fifths">
               <div class="title is-2 is-spaced has-text-centered has-text-info">
-                Motion & Illustrations
+                Illustrations
               </div>
 
               <div class="subtitle is-6 has-text-centered has-text-white ">
