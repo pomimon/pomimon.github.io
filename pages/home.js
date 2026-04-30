@@ -25,15 +25,15 @@ const Home = {
       ],
       cards: [
         {
-          image: "./assets/gradient.jpg",
+          image: "./assets/illustrations/tiger.jpg",
           title: "Illustrations",
-          description: "A mix of random monsters and somewhat cute things.",
+          description: "A mix of cute things and random monsters.",
           actions: [
             { name: "View", route: "/illustrations" },
           ],
         },
         {
-          image: "./assets/gradient.jpg",
+          image: "./assets/designs/BCLC-thumbnail.jpg",
           title: "Design",
           description: "A collection of design projects.",
           actions: [
