@@ -1,114 +1,58 @@
 const Home = {
   data() {
     return {
-      starfield: null,
       skills: [
-        { name: "React", theme: "primary" },
-        { name: "Vue", theme: "primary" },
-        { name: "TypeScript", theme: "primary" },
-        { name: "JavaScript", theme: "primary" },
-        { name: "Python", theme: "primary" },
-        { name: "HTML/CSS", theme: "primary" },
-
-        { name: "Jest", theme: "info" },
-        { name: "Bootstrap", theme: "info" },
-        { name: "Tailwind CSS", theme: "info" },
-        { name: "Git", theme: "info" },
-        { name: "Bun", theme: "info" },
-
         { name: "Adobe Creative Cloud", theme: "success" },
         { name: "Affinity Suite", theme: "success" },
         { name: "Figma", theme: "success" },
         { name: "Branding", theme: "success" },
         { name: "Illustration", theme: "success" },
         { name: "Canva", theme: "success" },
+
+        { name: "React", theme: "success" },
+        { name: "Vue", theme: "success" },
+        { name: "TypeScript", theme: "success" },
+        { name: "JavaScript", theme: "success" },
+        { name: "Python", theme: "success" },
+        { name: "HTML/CSS", theme: "success" },
+
+        { name: "Jest", theme: "success" },
+        { name: "Bootstrap", theme: "success" },
+        { name: "Tailwind CSS", theme: "success" },
+        { name: "Git", theme: "success" },
+        { name: "Bun", theme: "success" },
       ],
       cards: [
         {
-          image: "./assets/illustrations/tiger.jpg",
-          title: "Illustrations",
-          description: "A mix of cute things and random monsters.",
-          actions: [
-            { name: "View", route: "/illustrations" },
-          ],
-        },
-        {
           image: "./assets/designs/BCLC-thumbnail.jpg",
           title: "Design",
-          description: "A collection of design projects.",
+
           actions: [
             { name: "View", route: "/designs" },
           ],
         },
         {
-          image: "./assets/worldy.jpg",
-          title: "Worldy",
-          description: "A JRPG style walking world made in Phaser and Gridengine, on-going project ",
+          image: "./assets/compresso.png",
+          title: "Code",
           actions: [
-            { name: "View", url: "https://pomimon.github.io/worldy" },
-            { name: "Code", url: "https://github.com/pomimon/worldy" },
+            { name: "View", route: "/code" },
           ],
         },
         {
-          image: "./assets/compresso.jpg",
-          title: "Compresso",
-          description: "A vibe coded single-file browser tool for decompressing and compressing LZ4 files. No server, no dependencies.",
+          image: "./assets/illustrations/tiger2.jpg",
+          title: "Illustrations",
           actions: [
-            { name: "View", url: "https://pomimon.github.io/compresso" },
-            { name: "Code", url: "https://github.com/pomimon/compresso" },
-          ],
-        },
-        {
-          image: "./assets/pokedex2.jpg",
-          title: "Pokedex V2",
-          description: "Pokedex V2 built in Vue with more interactivity, displays various information for the original 151 Pokémon.",
-          actions: [
-            { name: "View", url: "https://pomimon.github.io/pokedex-vue" },
-            { name: "Code", url: "https://github.com/pomimon/pokedex-vue" },
-          ],
-        },
-        {
-          image: "./assets/pokedex.jpg",
-          title: "Pokedex V1",
-          description: "Pokédex V1 built in React, displays various information for the original 151 Pokémon.",
-          actions: [
-            { name: "View", url: "https://pomimon.github.io/pokedex" },
-            { name: "Code", url: "https://github.com/pomimon/pokedex" },
-          ],
-        },
-        {
-          image: "./assets/streams.jpg",
-          title: "Wildlife streams",
-          description: "A streaming web application that aggregates and displays live animal cam streams from multiple sources.",
-          actions: [
-            { name: "View", url: null },
-            { name: "Code", url: "https://github.com/pomimon/streaming-website" },
-          ],
-        },
-        {
-          image: "./assets/gradient.jpg",
-          title: "Coming soon",
-          description: "New project, coming soon.",
-          actions: [
-            { name: "View", url: null },
+            { name: "View", route: "/illustrations" },
           ],
         },
       ]
     }
   },
-  mounted() {
-    this.starfield = new StarField(this.$refs.starfield)
-  },
-  unmounted() {
-    if (this.starfield) {
-      this.starfield.destroy()
-      this.starfield = null
-    }
-  },
+
   template: `
     <main>
-      <section class="hero is-danger is-fullheight-with-navbar hero-starfield" id="hero">
-        <canvas ref="starfield" class="starfield-canvas"/>
+      <section class="hero is-danger" id="hero">
+
 
         <div class="hero-body">
           <div class="container has-text-centered">
@@ -116,10 +60,10 @@ const Home = {
               Hey, I'm Carmen
             </h1>
 
-            <div class="subtitle mx-6 mt-3">
+            <div class="subtitle mt-6 mb-6">
               <div class="columns">
                 <div class="column"/>
-                <div class="column is-half has-text-white">
+                <div class="column is-two-thirds has-text-info">
                   A designer who codes, creating brand identities, marketing materials,
                   and digital experiences, with the frontend skills to bring them to life in React and TypeScript
                 </div>
@@ -127,16 +71,16 @@ const Home = {
               </div>
             </div>
 
-            <div class= gap-4>
+            <div class= "gap-5">
               <RouterLink
-                class="button is-primary has-text-warning is-medium is-responsive mx-2"
+                class="button is-success has-text-danger is-normal is-responsive mx-2"
                 to="#projects"
               >
                 View My Work
               </RouterLink>
 
               <RouterLink
-                class="button is-outlined is-success is-medium is-responsive mx-2"
+                class="button is-outlined is-success is-normal is-responsive mx-2"
                 to="#contact"
               >
                 Get In Touch
@@ -147,53 +91,44 @@ const Home = {
       </section>
 
       <section class="section" id="projects">
-        <div class="container">
-          <div class="title is-2 has-text-centered has-text-info mb-6">
-            Projects
-          </div>
+        <div class="container-body">
 
-          <div class="columns">
-            <div class="column"/>
-            <div class="column is-four-fifths">
-              <div class="columns is-multiline is-3-tablet is-8-desktop">
-                <div class="column is-half" v-for="card in cards">
-                  <Card
-                    :image="card.image"
-                    :title="card.title"
-                    :description="card.description"
-                    :actions="card.actions"
-                    ratio="16by9"
-                  />
-                </div>
-              </div>
+
+          <div class="columns is-multiline">
+            <div class="column is-full card-margin" v-for="card in cards">
+              <Card
+                :image="card.image"
+                :title="card.title"
+                :actions="card.actions"
+                ratio="4by1"
+              />
             </div>
-            <div class="column"/>
           </div>
         </div>
       </section>
 
-      <section class="section is-medium has-background-danger">
-        <div class="container has-text-centered">
+
+      <section class="section experience-border is-medium has-background-danger">
+        <div class="container has-text-centered experience-margin">
           <div class="columns">
             <div class="column"/>
             <div class="column is-three-quarters">
               <div class="content">
-                <h1 class="has-text-primary title is-2">Experience</h1>
+                <h1 class="has-text-info title is-2">Experience</h1>
 
-                <p>
-                  I'm focused on building responsive, user-focused web applications in React and TypeScript with a 6+ year background of professional graphic design experience. I'm always eager to learn more in this fast paced industry.
+                <p class="has-text-info">
+                  With 6+ years of experience in graphic design and a growing passion for front-end development, I enjoy creating thoughtful, user-focused experiences from concept to code. There's always something new to learn, and that's part of what keeps me excited about this industry.
                 </p>
-
-                <p>
+                <p class="has-text-info">
                   Some technologies and tools I've worked with:
                 </p>
 
-                <div class="tags are-normal">
+                <div class="tags ">
                   <span
                     v-for="skill in skills"
                     v-text="skill.name"
                     :key="skill.name"
-                    :class="\`tag is-rounded has-text-weight-bold is-\${skill.theme}\`"
+                    :class="\`tag is-rounded is-success has-text-danger has-text-weight-bold is-\${skill.theme}\`"
                   />
                 </div>
               </div>
