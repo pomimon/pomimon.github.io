@@ -9,7 +9,7 @@ const Illustrations = {
         // { title: "Joy", image: "./assets/illustrations/joy.gif" },
         { title: "Tiger", image: "./assets/illustrations/tiger.jpg" },
         { title: "Bluebird", image: "./assets/illustrations/bluebird.jpg" },
-        // { title: "Pinkbird", image: "./assets/illustrations/pinkbird.jpg" },
+        { title: "Pinkbird", image: "./assets/illustrations/pinkbird.jpg" },
 
         { title: "Lemons", image: "./assets/illustrations/lemons.jpg" },
         { title: "Sprinkles", image: "./assets/illustrations/sprinkles.jpg" },
@@ -53,11 +53,11 @@ const Illustrations = {
           <div class="columns">
             <div class="column" />
             <div class="column is-four-fifths">
-              <div class="title is-2 is-spaced has-text-centered has-text-info">
+              <div class="title is-2 is-spaced has-text-centered has-text-info mt-6">
                 Illustrations
               </div>
 
-              <div class="subtitle is-6 has-text-centered has-text-white ">
+              <div class="subtitle is-6 has-text-centered has-text-info mb-6">
                 A variety of work I've created using Adobe Illustrator, Affinity Designer, Figma or Procreate. Most of
                 these are vector based and many of these monster illustrations begins with a few random pen strokes. I
                 play around until I start seeing something emerge from the chaos, and that's what it becomes. It's a
@@ -66,8 +66,8 @@ const Illustrations = {
                 intuition with technical execution.
               </div>
 
-              <div class="columns is-multiline is-3-tablet is-8-desktop">
-                <div class="column is-half" v-for="card in cards">
+              <div class="columns is-multiline card-margin is-3-tablet is-8-desktop mt-6">
+                <div class="column is-full" v-for="card in cards">
                   <Card :image="card.image" @image-click="openModal(card)" />
                 </div>
               </div>
@@ -79,12 +79,12 @@ const Illustrations = {
 
       <Teleport to="body">
         <div class="modal" :class="{ 'is-active': modalOpen }">
-          <div class="modal-background" @click="closeModal"/>
+          <div class="modal-background " @click="closeModal"/>
 
-          <div class="modal-card" v-if="selectedProject">
+          <div class="modal-card " v-if="selectedProject">
             <button class="modal-close" aria-label="close" @click="closeModal"/>
 
-            <section class="modal-card-body" v-if="selectedProject">
+            <section class="modal-card-body " v-if="selectedProject">
               <figure class="image">
                 <img :src="selectedProject.image" :alt="selectedProject.title" />
               </figure>
