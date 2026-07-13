@@ -1,30 +1,28 @@
 :root {
-  --bulma-primary-h: 326deg;
-  --bulma-primary-l: 74%;
-  --bulma-info-h: 191deg;
-  --bulma-info-s: 97%;
-  --bulma-info-l: 77%;
-  --bulma-success-h: 265deg;
-  --bulma-success-s: 89%;
-  --bulma-success-l: 78%;
-  --bulma-warning-h: 235deg;
-  --bulma-warning-s: 15%;
-  --bulma-warning-l: 14%;
-  --bulma-danger-h: 231deg;
-  --bulma-danger-s: 15%;
-  --bulma-danger-l: 18%;
+  --bulma-info-h: 0deg;
+  --bulma-info-s: 8%;
+  --bulma-info-l: 9.8%;
+  --bulma-success-h: 0deg;
+  --bulma-success-s: 68%;
+  --bulma-success-l: 43%;
+  --bulma-warning-h: 41deg;
+  --bulma-warning-s: 100%;
+  --bulma-warning-l: 95%;
+  --bulma-danger-h: 41deg;
+  --bulma-danger-s: 100%;
+  --bulma-danger-l: 95%;
 }
 
 /*
-primary - pink
-info - blue
-success - purple
+info - dark grey
+success - red
 warning - dark grey
-danger - light grey
+danger - off-white
 */
 
 body{
-  background-color: var(--bulma-warning);
+  background-color: var(--bulma-danger);
+  font-family: "Noto Sans", sans-serif;
 }
 
 .tags {
@@ -35,8 +33,19 @@ body{
   }
 }
 
+.navbar {
+  border-bottom: 2px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+}
+
+.navbar-item {
+  font-family:"Noto Sans", sans-serif;
+  font-weight: 600;
+}
+
 .footer {
   --bulma-footer-padding: 4rem 1.5rem;
+  background-color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l));
+  border-top: 1px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
 }
 
 .card {
@@ -55,43 +64,80 @@ body{
   }
 }
 
+.card .image img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
 .card-content {
   display: flex;
+  padding: 0.75rem 1rem;
   flex: 1;
   flex-direction: column;
 
+
   .content {
     flex: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+        border-bottom: 2px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+
   }
 }
 
+.card-margin {
+  margin-bottom: 5rem;
+}
+
+
 .object-cover {
   object-fit: cover;
+}
+
+.experience-margin {
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+}
+
+.experience-border {
+  border-top: 2px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
 }
 
 #hero {
   .hero-body {
     position: relative;
     z-index: 1;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-top: 12rem !important;
+    padding-bottom: 12rem !important;
+    border-bottom: 2px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
   }
 
   .title {
-    font-size: 4rem;
+    font-size: 6rem;
+    font-family: "Fraunces", serif;
   }
 
-  .hero-starfield {
-    position: relative;
-    overflow: hidden;
+  .subtitle {
+    font-size: 1.1rem;
   }
 
-  .starfield-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
+
+.modal {
+      --bulma-modal-card-head-background-color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l));
+      --bulma-modal-card-foot-background-color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l));
+      --bulma-modal-card-body-background-color: hsl(var(--bulma-danger-h), var(--bulma-danger-s), var(--bulma-danger-l));
 }
+
+.modal-card-title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+
 
 @media screen and (min-width: 1024px) {
   .section.is-medium {
