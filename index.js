@@ -48,12 +48,12 @@ const App = {
       <nav
         role="navigation"
         aria-label="main navigation"
-        class="navbar is-warning px-4"
+        class="navbar is-danger px-4"
       >
         <div class="navbar-brand">
           <RouterLink
             to="/"
-            class="navbar-item has-text-primary is-size-5"
+            class="navbar-item has-text-success is-size-5"
             v-text="'Carmen Ma'"
           />
 
@@ -79,7 +79,7 @@ const App = {
               :href="link.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="navbar-item has-text-primary"
+              class="navbar-item has-text-success"
               :aria-label="link.text"
             >
               <i :data-feather="link.icon" />
@@ -91,10 +91,11 @@ const App = {
       <RouterView />
 
       <footer id="contact" class="footer">
-        <div class="has-text-centered">
+        <div class="has-text-centered has-text-success">
+          <p class="mb-5">If you'd like to chat about custom work or illustrations, get in touch!</p>
           <a
             href="mailto:carmen.ma73@gmail.com"
-            class="button is-danger has-text-white"
+            class="button is-success has-text-danger"
           >
             <span class="icon">
               <i data-feather="send" />
@@ -140,7 +141,40 @@ const Card = {
   },
   template: `
     <div class="card is-shadowless has-background-danger">
-      <div class="card-image">
+
+      <div class="card-content" v-if="showContent">
+        <div class="content">
+          <div>
+            <h5 v-if="title" v-text="title" class="has-text-success"/>
+            <p v-if="description" v-text="description" class="has-text-success"/>
+          </div>
+          <div class="buttons are-medium" v-if="showFooter">
+            <template v-for="action in actions">
+              <RouterLink
+                class="button is-success is-outlined is-rounded"
+                v-if="action.route"
+                v-text="action.name"
+                :to="action.route"
+              />
+
+              <a
+                v-else
+                class="button is-outlined is-rounded is-success"
+                target="_blank"
+                rel="noopener noreferrer"
+                v-text="action.name"
+                :href="action.url"
+                :disabled="!action.url || null"
+              />
+            </template>
+          </div>
+        </div>
+
+
+      </div>
+
+    <div class="card-image">
+      <RouterLink v-if="actions && actions[0]?.route" :to="actions[0].route">
         <figure :class="imageClass">
           <img
             class="object-cover"
@@ -149,36 +183,17 @@ const Card = {
             @click="$emit('image-click')"
           />
         </figure>
-      </div>
-
-      <div class="card-content" v-if="showContent">
-        <div class="content">
-          <h5 v-if="title" v-text="title"/>
-          <p v-if="description" v-text="description"/>
-        </div>
-
-        <div class="buttons mt-4 are-medium" v-if="showFooter">
-          <template v-for="action in actions">
-            <RouterLink
-              class="button is-info is-outlined is-rounded"
-              v-if="action.route"
-              v-text="action.name"
-              :to="action.route"
-            />
-
-            <a
-              v-else
-              class="button is-outlined is-rounded is-info"
-              target="_blank"
-              rel="noopener noreferrer"
-              v-text="action.name"
-              :href="action.url"
-              :disabled="!action.url || null"
-            />
-          </template>
-        </div>
-      </div>
+      </RouterLink>
+      <figure v-else :class="imageClass">
+        <img
+          class="object-cover"
+          :src="image"
+          :alt="title"
+          @click="$emit('image-click')"
+        />
+      </figure>
     </div>
+
   `,
 }
 
@@ -186,6 +201,7 @@ const routes = [
   { path: "/", component: Home },
   { path: "/designs", component: Designs },
   { path: "/illustrations", component: Illustrations },
+  { path: "/code", component: Code },
 ]
 
 const router = VueRouter.createRouter({
@@ -221,3 +237,4 @@ app.config.errorHandler = function (error, vm, info) {
 app.component("Card", Card)
 app.use(router)
 app.mount("#app")
+
