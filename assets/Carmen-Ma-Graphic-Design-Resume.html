@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carmen Ma — Graphic Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-muted: #888;
+    --page: #FAFAF8;
+    --rule: #E8E4DC;
+    --accent: #4A7C74;
+    --sidebar-w: 220px;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+    .exp-entry, .exp-bullets li, .project-item { break-inside: avoid; }
+  }
+
+  body {
+    background: #EDEBE6;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 24px;
+  }
+
+  .page {
+    background: var(--page);
+    width: 860px;
+    max-width: 100%;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+    display: flex;
+    position: relative;
+  }
+
+  .page::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 36px;
+    width: 3px;
+    height: 60px;
+    background: var(--accent);
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: #F3F0EA;
+    padding: 36px 22px 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .name-block {
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .title-tag {
+    margin-top: 5px;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  /* Bold main section labels; Education label stays unbolded via separate class */
+  .sidebar-section-label {
+    font-size: 10.5px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    margin-bottom: 9px;
+  }
+
+  .sidebar-section-label.quiet {
+    font-weight: 500;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+  }
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .contact-list li {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    word-break: break-all;
+  }
+
+  .contact-list a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .contact-list a:hover { text-decoration: underline; }
+
+  /* Skill groups */
+  .skill-group + .skill-group { margin-top: 10px; }
+
+  .skill-group-label {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+    padding-left: 8px;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .skill-group .skill-pills {
+    padding-left: 8px;
+  }
+
+  .pill {
+    font-size: 11px;
+    color: var(--ink-soft);
+    background: #E8E4DC;
+    border-radius: 3px;
+    padding: 2px 6px;
+    line-height: 1.45;
+  }
+
+  /* Education */
+  .edu-school {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .edu-credential {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+    line-height: 1.45;
+  }
+
+  /* Main content */
+  .main {
+    flex: 1;
+    padding: 36px 36px 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* Experience entries */
+  .exp-entry {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .exp-entry + .exp-entry {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .exp-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 2px;
+  }
+
+  .exp-company {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .exp-date {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .exp-role {
+    font-size: 11.5px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 7px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .exp-bullets li {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    padding-left: 12px;
+    position: relative;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .exp-bullets li::before {
+    content: '\00B7';
+    position: absolute;
+    left: 2px;
+    color: var(--accent);
+    font-size: 14px;
+    top: -1px;
+  }
+
+  /* Independent work list */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-item {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .project-meta {
+    min-width: 140px;
+    max-width: 140px;
+  }
+
+  .project-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .project-type {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    line-height: 1.4;
+  }
+
+  .project-desc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    flex: 1;
+    padding-top: 1px;
+  }
+
+  @media (max-width: 680px) {
+    .page { flex-direction: column; }
+    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--rule); }
+    .exp-meta { flex-direction: column; gap: 2px; }
+    .project-item { flex-direction: column; gap: 6px; }
+    .project-meta { min-width: unset; max-width: unset; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="name-block">
+      <div class="name">Carmen Ma</div>
+      <div class="title-tag">Graphic Designer</div>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label">Contact</div>
+      <ul class="contact-list">
+        <li><a href="mailto:carmen.ma73@gmail.com">carmen.ma73@gmail.com</a></li>
+        <li><a href="https://pomimon.github.io" target="_blank">pomimon.github.io</a></li>
+        <li><a href="https://github.com/pomimon" target="_blank">github.com/pomimon</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label">Design</div>
+      <div class="skill-pills">
+        <span class="pill">Branding &amp; Identity</span>
+        <span class="pill">Print Production</span>
+        <span class="pill">Illustration</span>
+        <span class="pill">Marketing Design</span>
+        <span class="pill">Typography</span>
+        <span class="pill">UI / Visual Design</span>
+        <span class="pill">Presentation Design</span>
+        <span class="pill">Art Direction</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label">Tools</div>
+      <div class="skill-group">
+        <div class="skill-group-label">Adobe</div>
+        <div class="skill-pills">
+          <span class="pill">Illustrator</span>
+          <span class="pill">Photoshop</span>
+          <span class="pill">InDesign</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Affinity</div>
+        <div class="skill-pills">
+          <span class="pill">Designer</span>
+          <span class="pill">Photo</span>
+          <span class="pill">Publisher</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Prototyping</div>
+        <div class="skill-pills">
+          <span class="pill">Figma</span>
+          <span class="pill">Sketch</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label">Frontend</div>
+      <div class="skill-pills">
+        <span class="pill">HTML / CSS</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">React</span>
+        <span class="pill">Vue</span>
+        <span class="pill">TypeScript</span>
+        <span class="pill">Tailwind CSS</span>
+        <span class="pill">Git</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label quiet">Education</div>
+      <div class="edu-school">BCIT</div>
+      <div class="edu-credential">Graphic Design — Associate Certificate<br>
+        <span style="font-size:11px; font-family:'DM Mono',monospace; color:var(--ink-muted);">2014 – 2015</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- EXPERIENCE -->
+    <section>
+      <div class="section-header">
+        <div class="section-label">Experience</div>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- BCLC -->
+      <div class="exp-entry">
+        <div class="exp-meta">
+          <div class="exp-company">BC Lottery Corporation</div>
+          <div class="exp-date">Oct 2019 – Feb 2021</div>
+        </div>
+        <div class="exp-role">Graphic Designer &amp; Print Production Specialist · Vancouver, BC</div>
+        <ul class="exp-bullets">
+          <li>Delivered print services and marketing materials to 300+ Lotto retail locations province-wide, maintaining brand consistency across a high-volume output environment.</li>
+          <li>Identified print jobs across 10+ departments that could be produced in-house, consolidating them internally and reducing third-party spend.</li>
+          <li>Created on-brand corporate graphics for internal communications and external stakeholder use.</li>
+          <li>Managed production equipment maintenance, supply ordering, binding, and vinyl printing end-to-end.</li>
+          <li>Trained colleagues on print workflows, file specifications, and equipment operation.</li>
+        </ul>
+      </div>
+
+      <!-- Terry Trophy -->
+      <div class="exp-entry">
+        <div class="exp-meta">
+          <div class="exp-company">Terry Trophy &amp; Awards</div>
+          <div class="exp-date">Mar 2018 – Feb 2019</div>
+        </div>
+        <div class="exp-role">Graphic Designer &amp; Account Manager · Kamloops, BC</div>
+        <ul class="exp-bullets">
+          <li>Managed client accounts across embellishment and promotional products, overseeing $15K+ in monthly revenue.</li>
+          <li>Prepared artwork for screen printing, heat transfer, vinyl, DTG printing, and sticker production, covering file separation, weeding, and application.</li>
+          <li>Created logos and marketing graphics where client artwork was unavailable.</li>
+          <li>Trained new team members on file standards and production workflows, reducing client miscommunications.</li>
+        </ul>
+      </div>
+
+      <!-- Stitches Creation -->
+      <div class="exp-entry">
+        <div class="exp-meta">
+          <div class="exp-company">Stitches Creation</div>
+          <div class="exp-date">Oct 2015 – Feb 2017</div>
+        </div>
+        <div class="exp-role">Graphic Designer &amp; Account Manager · Burnaby, BC</div>
+        <ul class="exp-bullets">
+          <li>Served as sole art coordinator across 40+ active accounts, preparing and separating all client-supplied artwork for screen printing, and managed quoting, client follow-up, and production scheduling for approximately 30% of the account roster.</li>
+          <li>During a 7-month staffing gap, assumed full responsibility for all 40+ accounts, artwork, quoting, follow-up, production scheduling, and backfill support for two adjacent departments.</li>
+          <li>Built a new template library of 100+ garment and accessory mockups from scratch, cutting presentation turnaround time significantly.</li>
+          <li>Onboarded and trained replacement hire while maintaining the full client workload.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- INDEPENDENT WORK -->
+    <section>
+      <div class="section-header">
+        <div class="section-label">Independent Work</div>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="projects-list">
+        <div class="project-item">
+          <div class="project-meta">
+            <div class="project-name">Lagom Concepts</div>
+            <div class="project-type">Children's Clothing Brand</div>
+          </div>
+          <div class="project-desc">Developed a recurring bear character (Beary) across an original illustration series for clothing applications. Designed brand identity, hang tags, business cards, and marketing materials including brochures and roll-top displays.</div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-meta">
+            <div class="project-name">Elemental Trends</div>
+            <div class="project-type">Craft Market &amp; Pop-up Shop</div>
+          </div>
+          <div class="project-desc">Full brand identity from the ground up, including logo, slogan, and brand voice. Produced a broad marketing suite: brochures, posters, flyers, social media graphics, stickers, buttons, and roll-top displays.</div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-meta">
+            <div class="project-name">Illumine Creative</div>
+            <div class="project-type">Independent Brand &amp; Product Line</div>
+          </div>
+          <div class="project-desc">Built and evolved an independent product line from illustrated stuffed toy pillows through hand-embroidered wall hangings to digital PDF embroidery patterns. Handled all visual identity, web presence, and product photography, applying marketing strategy and content creation end-to-end.</div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-meta">
+            <div class="project-name">Stanley Park Info Booth</div>
+            <div class="project-type">Signage &amp; Menu Design</div>
+          </div>
+          <div class="project-desc">Commissioned by management after demonstrating design skills on the job. Designed new menus and signage for the park's visitor-facing café and information centre.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
