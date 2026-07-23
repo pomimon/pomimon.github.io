@@ -4,7 +4,7 @@ const App = {
       menuActive: false,
       links: [
         {
-          href: "./assets/Carmen-Ma-Resume.pdf",
+          href: "./assets/Carmen-Ma-Graphic-Design-Resume.html",
           icon: "file-text",
           text: "View Resume"
         },
